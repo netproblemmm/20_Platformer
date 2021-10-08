@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace PlatformerMVC
@@ -9,10 +10,18 @@ namespace PlatformerMVC
         public Collider2D _collider;
         public Rigidbody2D _rigidbody;
 
+        public Action<LevelObjectView> OnLevelObjectContact { get; set; }
+
         void Start()
         {
             _transform = GetComponent<Transform>();
             _spriteRenderer = GetComponent<SpriteRenderer>();
+        }
+
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            LevelObjectView levelObj = collision.GetComponent<LevelObjectView>();
+            OnLevelObjectContact?.Invoke(levelObj);
         }
     }
 }
