@@ -9,11 +9,15 @@ namespace PlatformerMVC
         [SerializeField] private LevelObjectView _playerView;
         [SerializeField] private CannonView _cannonView;
 
+        [SerializeField] private QuestView _questView;
+
         private SpriteAnimatorController _playerAnimator;
 
         private PlayerController _playerController;
         private CannonController _cannon;
         private BulletEmitterController _bulletEmitterController;
+
+        private QuestConfiguratorController _questConfigurator;
 
         private void Awake()
         {
@@ -31,6 +35,9 @@ namespace PlatformerMVC
             _playerController = new PlayerController(_playerView, _playerAnimator);
             _cannon = new CannonController(_cannonView._muzzleTransform, _playerView.transform);
             _bulletEmitterController = new BulletEmitterController(_cannonView._bullets, _cannonView._emitterTransform);
+
+            _questConfigurator = new QuestConfiguratorController(_questView);
+            _questConfigurator.Start();
         }
 
         private void Update()
