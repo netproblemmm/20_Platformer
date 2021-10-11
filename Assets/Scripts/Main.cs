@@ -16,7 +16,7 @@ namespace PlatformerMVC
         private PlayerController _playerController;
         private CannonController _cannon;
         private BulletEmitterController _bulletEmitterController;
-
+        private CameraController _cameraController;
         private QuestConfiguratorController _questConfigurator;
 
         private void Awake()
@@ -35,7 +35,7 @@ namespace PlatformerMVC
             _playerController = new PlayerController(_playerView, _playerAnimator);
             _cannon = new CannonController(_cannonView._muzzleTransform, _playerView.transform);
             _bulletEmitterController = new BulletEmitterController(_cannonView._bullets, _cannonView._emitterTransform);
-
+            _cameraController = new CameraController(_playerView._transform, Camera.main.transform);
             _questConfigurator = new QuestConfiguratorController(_questView);
             _questConfigurator.Start();
         }
@@ -45,6 +45,7 @@ namespace PlatformerMVC
             _playerController.Update();
             _cannon.Update();
             _bulletEmitterController.Update();
+            _cameraController.Update();
         }
 
         private void FixedUpdate()
