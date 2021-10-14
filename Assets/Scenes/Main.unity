@@ -1295,8 +1295,9 @@ MonoBehaviour:
   _groundTile: {fileID: 11400000, guid: f66edc965c12ca8438d3f352eae15805, type: 2}
   _mapWidth: 200
   _mapHeight: 200
+  _borders: 1
   _factorSmooth: 20
-  _fillPercent: 38
+  _fillPercent: 50
 --- !u!1 &1038368197
 GameObject:
   m_ObjectHideFlags: 0
@@ -1331,6 +1332,7 @@ MonoBehaviour:
   _animationSpeed: 10
   _playerView: {fileID: 487046472}
   _cannonView: {fileID: 635286480}
+  _generatorView: {fileID: 1036908551}
   _questView: {fileID: 1131804206}
 --- !u!4 &1038368199
 Transform:
