@@ -4,9 +4,11 @@ namespace PlatformerMVC
 {
     public class QuestObjectView : LevelObjectView
     {
-        [SerializeField] public int ID;
+        [SerializeField] private int ID;
         [SerializeField] private Color _completedColor;
         private Color _defaultColor;
+
+        public int Id => ID;
 
         void Awake()
         {
