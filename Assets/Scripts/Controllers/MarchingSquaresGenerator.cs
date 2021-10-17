@@ -5,7 +5,8 @@ namespace PlatformerMVC
 {
     public class MarchingSquaresGenerator
     {
-        private Tilemap _tilemap;
+
+        private Tilemap _tileMap;
         private Tile _tile;
         private SquareGrid _squareGrid;
 
@@ -18,7 +19,8 @@ namespace PlatformerMVC
         {
             if (_squareGrid == null)
                 return;
-            _tilemap = tileMap;
+
+            _tileMap = tileMap;
             _tile = ground;
 
             for (int x = 0; x < _squareGrid.Squares.GetLength(0); x++)
@@ -28,7 +30,7 @@ namespace PlatformerMVC
                     DrawControlNode(_squareGrid.Squares[x, y].TopLeft.Active, _squareGrid.Squares[x, y].TopLeft.Position);
                     DrawControlNode(_squareGrid.Squares[x, y].TopRight.Active, _squareGrid.Squares[x, y].TopRight.Position);
                     DrawControlNode(_squareGrid.Squares[x, y].BottomLeft.Active, _squareGrid.Squares[x, y].BottomLeft.Position);
-                    DrawControlNode(_squareGrid.Squares[x, y].BottonRight.Active, _squareGrid.Squares[x, y].BottonRight.Position);
+                    DrawControlNode(_squareGrid.Squares[x, y].BottomRight.Active, _squareGrid.Squares[x, y].BottomRight.Position);
                 }
             }
         }
@@ -38,7 +40,7 @@ namespace PlatformerMVC
             if(active)
             {
                 Vector3Int TilePos = new Vector3Int((int)pos.x, (int)pos.y, 0);
-                _tilemap.SetTile(TilePos, _tile);
+                _tileMap.SetTile(TilePos, _tile);
             }
         }
     }
@@ -65,14 +67,14 @@ namespace PlatformerMVC
 
     public class Square
     {
-        public ControlNode TopLeft, TopRight, BottomLeft, BottonRight;
+        public ControlNode TopLeft, TopRight, BottomLeft, BottomRight;
 
-        public Square(ControlNode topLeft, ControlNode topRight, ControlNode bottomLeft, ControlNode bottonRight)
+        public Square(ControlNode topLeft, ControlNode topRight, ControlNode bottomLeft, ControlNode bottomRight)
         {
             TopLeft = topLeft;
             TopRight = topRight;
             BottomLeft = bottomLeft;
-            BottonRight = bottonRight;
+            BottomRight = bottomRight;
         }
     }
 

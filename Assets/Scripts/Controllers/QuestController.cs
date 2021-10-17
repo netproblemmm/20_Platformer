@@ -24,7 +24,7 @@ namespace PlatformerMVC
 
         }
 
-        public void Complete()
+        private void Complete()
         {
             if (!_active) return;
 
@@ -42,6 +42,8 @@ namespace PlatformerMVC
         public void Reset()
         {
             if (_active) return;
+
+            _active = true;
             _view.OnLevelObjectContact += OnContact;
             _view.Activate();
         }

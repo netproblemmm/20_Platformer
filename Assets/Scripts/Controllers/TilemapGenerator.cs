@@ -93,7 +93,7 @@ namespace PlatformerMVC
             {
                 for (int gridY = y - 1; gridY <= y + 1; gridY++)
                 {
-                    if (gridX > 0 && gridX < _mapWidth && gridY >= 0 && gridY < _mapHeight)
+                    if(gridX >=0 && gridX < _mapWidth && gridY >= 0 && gridY < _mapHeight)
                     {
                         if(gridX != x || gridY != y)
                         {

@@ -15,7 +15,9 @@ namespace PlatformerMVC
         public ResettableQuestStoryController(List<IQuest> questCollection)
         {
             _questCollection = questCollection;
-            ResetAllQuest();
+            Subscribe();
+            ResetAllQuests();
+
         }
 
         private void Subscribe()
@@ -26,7 +28,7 @@ namespace PlatformerMVC
             }
         }
 
-        private void Unsubscribe()
+        public void Unsubscribe()
         {
             foreach (IQuest quest in _questCollection)
             {
@@ -47,11 +49,11 @@ namespace PlatformerMVC
             }
             else
             {
-                ResetAllQuest();
+                ResetAllQuests();
             }
         }
 
-        private void ResetAllQuest()
+        private void ResetAllQuests()
         {
             _currentIndex = 0;
             foreach (IQuest quest in _questCollection)

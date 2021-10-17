@@ -30,7 +30,7 @@ namespace PlatformerMVC
             }
             if (_playerView)
             {
-                _playerAnimator.StartAnimation(_playerView._spriteRenderer, AnimState.Idle, true, _animationSpeed);
+                _playerAnimator.StartAnimation(_playerView._spriteRenderer, AnimState.Run, true, _animationSpeed);
             }
 
             _playerController = new PlayerController(_playerView, _playerAnimator);
